@@ -32,6 +32,13 @@ button:hover {
   transition-duration: 100ms;
 }
 
+.select {
+  /* font-size: 30px; */
+  border: 2px solid darkcyan;
+  background: darkcyan;
+  color: white;
+}
+
 .display-none {
   display: none;
 }
@@ -47,4 +54,8 @@ button:hover {
 
 .filled {
   background-color: darkcyan;
+}
+
+.faded {
+  color: grey;
 }
