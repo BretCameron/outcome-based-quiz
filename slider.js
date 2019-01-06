@@ -8,6 +8,7 @@ $('.question').each(function (i, val) {
     if (i < $('.question').length - 1) {
         $(this).prepend(`<h3>Question ${i + 1}</h3>`);
         $(this).append(`<br>Question ${i + 1} of ${$('.question').length - 1}`);
+        // $(this).append('<hr>');
     };
 });
 
@@ -28,16 +29,19 @@ for (let i = 0; i < $('.question').length - 1; i++) {
 
 let pageNum = 0, furthestPage = 0;
 let pageNumHistory = [0];
+let enablePageTurn = true;
 
 const turnPage = () => {
-    $('.question').each(function (i, val) {
-        if (i !== pageNum) {
-            $(this).addClass('display-none');
-        } else {
-            $(this).removeClass('display-none');
-        };
-    });
-
+    const revealCurrentPage = () => {
+        $('.question').each(function (i, val) {
+            if (i !== pageNum) {
+                $(this).addClass('display-none');
+            } else {
+                $(this).removeClass('display-none');
+            };
+        });
+    };
+    if (enablePageTurn === true) { revealCurrentPage() };
     pageNumHistory.push(pageNum);
     furthestPage = Math.max(...pageNumHistory);
     // VISUAL CHANGES TO CIRCLES
@@ -78,15 +82,6 @@ $('#turn-forward').click(function () {
     };
 });
 
-$('#reset').click(function () {
-    pageNum = 0;
-    furthestPage = 0;
-    pageNumHistory = [0];
-    turnPage();
-    $('.select').removeClass('select');
-    $('#reveal-text').empty();
-});
-
 $('button').not('#reveal').click(function () {
     if (pageNum < $('.question').length - 1) {
         pageNum++;
@@ -102,6 +97,32 @@ $('.circle').click(function () {
     };
 });
 
+// RESET AND REVEAL ALL
+
+$('#reset').click(function () {
+    location.reload();
+    // pageNum = 0;
+    // furthestPage = 0;
+    // pageNumHistory = [0];
+    // turnPage();
+    // $('.select').removeClass('select');
+    // $('#reveal-text').empty();
+});
+
+$('#reveal-all').one('click', function () {
+    enablePageTurn = false;
+    $('#reveal-all').addClass('display-none');
+    $('#progress').addClass('display-none');
+    $('#turn-back').addClass('display-none');
+    $('#turn-forward').addClass('display-none');
+    $('.question.display-none').removeClass('display-none');
+    $('.question').each(function (i, val) {
+        if (i < $('.question').length - 1) {
+            $(this).append('<hr>');
+        };
+    });
+});
+
 //DEFINE OUTCOMES
 
 let outcomes = {
@@ -112,7 +133,7 @@ let outcomes = {
 
 //ADD SELECTIONS (ONLY 1 PER QUESTION)
 
-$('button').click(function () {
+$('button').not('#reveal').click(function () {
     if (!$(this).hasClass('select')) {
         $(this).parent().find('button').each(function () {
             $(this).removeClass('select');
@@ -134,15 +155,22 @@ $('#reveal').click(function () {
         scoresArray.push(score);
     });
     let winner = (outcomesArray[scoresArray.indexOf(Math.max(...scoresArray))]);
-    $('#lds-animation').removeClass('lds-off').addClass('lds-on');
-    let timeDelay = randomLoadTime(1000, 2000);
-    setTimeout(removeLdsAnimation, timeDelay);
-    function revealResult() {
-        $('#reveal-text').text(outcomes[winner].name);
-    };
-    setTimeout(revealResult, timeDelay);
-});
 
+    //IF ALL QUESTIONS ANSWERED, DISPLAY LOADING ANIMATION, THEN RESULT
+    if (($('.select').length) === ($('.question').length - 1)) {
+        let timeDelay = randomLoadTime(1500, 2500);
+        $('#lds-animation').removeClass('lds-off').addClass('lds-on');
+        setTimeout(removeLdsAnimation, timeDelay);
+        function revealResult() {
+            $('#reveal-text').text(outcomes[winner].name);
+        };
+        setTimeout(revealResult, timeDelay);
+    } else {
+        let numQuestions = $('.question').length - 1;
+        let numLeft = numQuestions - ($('.select').length);
+        $('#reveal-text').prepend(`You missed ${numLeft} questions!<br><br>You must answer all ${numQuestions} questions to reveal your result.`);
+    }
+});
 
 function removeLdsAnimation() {
     $('#lds-animation').addClass('lds-off').removeClass('lds-on');
