@@ -168,7 +168,11 @@ $('#reveal').click(function () {
     } else {
         let numQuestions = $('.question').length - 1;
         let numLeft = numQuestions - ($('.select').length);
-        $('#reveal-text').prepend(`You missed ${numLeft} questions!<br><br>You must answer all ${numQuestions} questions to reveal your result.`);
+        if (numLeft === 1) {
+            $('#reveal-text').prepend(`You missed 1 question!<br><br>You must answer all ${numQuestions} questions to reveal your result.`);
+        } else {
+            $('#reveal-text').prepend(`You missed ${numLeft} questions!<br><br>You must answer all ${numQuestions} questions to reveal your result.`);
+        }
     }
 });
 
