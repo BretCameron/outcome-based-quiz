@@ -17,6 +17,7 @@ for (let i = 0; i < $('.question').length - 1; i++) {
     $('#progress').append('<div class="circle"></div>\n');
     $('.circle').each(function (i, val) {
         $(this).addClass('circle' + i);
+        $(this).attr('circle-num', i);
         if (i === 0) {
             $(this).addClass('filled');
         }
@@ -36,15 +37,17 @@ const turnPage = () => {
             $(this).removeClass('display-none');
         };
     });
+
+    pageNumHistory.push(pageNum);
+    furthestPage = Math.max(...pageNumHistory);
+    // VISUAL CHANGES TO CIRCLES
     for (let j = 0; j < $('.question').length; j++) {
-        if (j <= pageNum) {
+        if (j <= furthestPage) {
             $('.circle' + j).addClass('filled');
         } else {
             $('.circle' + j).removeClass('filled');
         }
     };
-    pageNumHistory.push(pageNum);
-    furthestPage = Math.max(...pageNumHistory);
 
     //VISUAL CHANGES TO BACK AND FORWARD
     if (pageNum === 0) {
@@ -81,11 +84,20 @@ $('#reset').click(function () {
     pageNumHistory = [0];
     turnPage();
     $('.select').removeClass('select');
+    $('#reveal-text').empty();
 });
 
-$('button').click(function () {
+$('button').not('#reveal').click(function () {
     if (pageNum < $('.question').length - 1) {
         pageNum++;
+        turnPage();
+    };
+});
+
+$('.circle').click(function () {
+    if ($(this).hasClass('filled')) {
+        pageNum = Number($(this).attr('circle-num'));
+        console.log(pageNum);
         turnPage();
     };
 });
@@ -93,9 +105,9 @@ $('button').click(function () {
 //DEFINE OUTCOMES
 
 let outcomes = {
-    outcome1: { name: 'You mostly hit the top answer', count: 0 },
-    outcome2: { name: 'You mostly hit the middle answers', count: 0 },
-    outcome3: { name: 'You mostly hit the bottom answer', count: 0 }
+    outcome1: { name: 'This will contain the outcome text of "Outcome 1"', count: 0 },
+    outcome2: { name: 'This will contain the outcome text of "Outcome 2"', count: 0 },
+    outcome3: { name: 'This will contain the outcome text of "Outcome 3"', count: 0 }
 };
 
 //ADD SELECTIONS (ONLY 1 PER QUESTION)
@@ -112,6 +124,7 @@ $('button').click(function () {
 //COUNT UP SELECTED BUTTONS
 
 $('#reveal').click(function () {
+    $('#reveal-text').empty();
     let outcomesArray = Object.keys(outcomes);
     //RESET COUNTS TO ZERO
     let scoresArray = [];
@@ -121,5 +134,28 @@ $('#reveal').click(function () {
         scoresArray.push(score);
     });
     let winner = (outcomesArray[scoresArray.indexOf(Math.max(...scoresArray))]);
-    $('#reveal-text').text(outcomes[winner].name);
+    $('#lds-animation').removeClass('lds-off').addClass('lds-on');
+    let timeDelay = randomLoadTime(1000, 2000);
+    setTimeout(removeLdsAnimation, timeDelay);
+    function revealResult() {
+        $('#reveal-text').text(outcomes[winner].name);
+    };
+    setTimeout(revealResult, timeDelay);
 });
+
+
+function removeLdsAnimation() {
+    $('#lds-animation').addClass('lds-off').removeClass('lds-on');
+}
+
+// RANDOM DELAY FOR LOADING ANIMATION
+
+function randomLoadTime(min, max = 10000, multipleOf = 500) {
+    let arrValue = Math.ceil(min / multipleOf) * multipleOf
+    let arrOfNums = [arrValue];
+    while (arrValue < max) {
+        arrValue += multipleOf;
+        arrOfNums.push(arrValue);
+    }
+    return arrOfNums[Math.floor(Math.random() * arrOfNums.length)];
+}
