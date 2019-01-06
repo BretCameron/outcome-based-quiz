@@ -33,13 +33,20 @@ let enablePageTurn = true;
 
 const turnPage = () => {
     const revealCurrentPage = () => {
-        $('.question').each(function (i, val) {
-            if (i !== pageNum) {
-                $(this).addClass('display-none');
-            } else {
-                $(this).removeClass('display-none');
-            };
-        });
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+        const displayCurrentPage = () => {
+            $('.question').animate({ opacity: 100 }, 0);
+            $('.question').each(function (i, val) {
+                if (i !== pageNum) {
+                    $(this).addClass('display-none');
+                } else {
+                    $(this).removeClass('display-none');
+                };
+            });
+        };
+        //ANIMATE SUBMISSION
+        $('.question').animate({ opacity: 0 }, 500);
+        setTimeout(displayCurrentPage, 501);
     };
     if (enablePageTurn === true) { revealCurrentPage() };
     pageNumHistory.push(pageNum);

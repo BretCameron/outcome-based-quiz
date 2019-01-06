@@ -42,7 +42,7 @@ button {
   /* min-height: 2.5em; */
   font-size: 0.98em;
   margin-bottom: 1em;
-  width: 95vw;
+  width: 40vw;
   max-width: 158px;
   background-color: transparent;
   /* background: rgb(253, 253, 253); */
@@ -136,6 +136,7 @@ button:hover {
 .faded {
   cursor: not-allowed;
   color: rgb(238, 238, 238);
+  stroke: rgb(238, 238, 238);
 }
 
 /* RESET BUTTON */
@@ -149,6 +150,10 @@ button:hover {
 #reset:hover,
 #reveal-all:hover {
   text-decoration: underline;
+}
+
+#reveal-text {
+  margin: 20px 5px 0 5px;
 }
 
 /* LOADING ANIMATION
