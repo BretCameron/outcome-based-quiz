@@ -35,7 +35,7 @@ const turnPage = () => {
     const revealCurrentPage = () => {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
         const displayCurrentPage = () => {
-            $('.question').animate({ opacity: 100 }, 0);
+            // $('.question').animate({ opacity: 100 }, 0);
             $('.question').each(function (i, val) {
                 if (i !== pageNum) {
                     $(this).addClass('display-none');
@@ -44,9 +44,10 @@ const turnPage = () => {
                 };
             });
         };
-        //ANIMATE SUBMISSION
-        $('.question').animate({ opacity: 0 }, 500);
-        setTimeout(displayCurrentPage, 501);
+        //ANIMATE FADE (DISABLE COMMENT TO ENABLE)
+        // $('.question').animate({ opacity: 0 }, 500);
+        // setTimeout(displayCurrentPage, 501);
+        displayCurrentPage();
     };
     if (enablePageTurn === true) { revealCurrentPage() };
     pageNumHistory.push(pageNum);
