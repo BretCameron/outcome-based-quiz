@@ -1,0 +1,13 @@
+TO DO:
+at the start, fix height based on Q with maximum no. of options?
+
+
+maybe add a local version of jquery3.3.1 to speed things up
+(also means I can develop without internet)
+
+
+MOBILE OPTIMISATIONS
+- Result/Outcome text is two wide
+- every page turn, user should return to top of screen
+- two answer buttons per row on mobile would be good
+- forward and backward buttons look odd - probably better to use an SVG design

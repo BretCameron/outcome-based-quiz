@@ -6,7 +6,7 @@ $('.question').each(function (i, val) {
         $(this).addClass('display-none');
     };
     if (i < $('.question').length - 1) {
-        $(this).prepend(`<h3>Question ${i + 1}</h3>`);
+        $(this).prepend(`<h3 class="question-num">Question ${i + 1}</h3>`);
         $(this).append(`<br>Question ${i + 1} of ${$('.question').length - 1}`);
         // $(this).append('<hr>');
     };
@@ -15,7 +15,7 @@ $('.question').each(function (i, val) {
 //CREATE PROGRESS CIRCLES
 
 for (let i = 0; i < $('.question').length - 1; i++) {
-    $('#progress').append('<div class="circle"></div>\n');
+    $('#progress').append('<div class="circle"</div>\n');
     $('.circle').each(function (i, val) {
         $(this).addClass('circle' + i);
         $(this).attr('circle-num', i);
@@ -24,6 +24,8 @@ for (let i = 0; i < $('.question').length - 1; i++) {
         }
     });
 };
+
+$('[circle-num=0]').addClass('white-border');
 
 //TURN PAGE (FUNCTION)
 
@@ -48,6 +50,8 @@ const turnPage = () => {
         // $('.question').animate({ opacity: 0 }, 500);
         // setTimeout(displayCurrentPage, 501);
         displayCurrentPage();
+        $('.circle').removeClass('white-border');
+        $(`[circle-num=${pageNum}]`).addClass('white-border');
     };
     if (enablePageTurn === true) { revealCurrentPage() };
     pageNumHistory.push(pageNum);
@@ -199,3 +203,20 @@ function randomLoadTime(min, max = 10000, multipleOf = 500) {
     }
     return arrOfNums[Math.floor(Math.random() * arrOfNums.length)];
 }
+
+// NAVIGATION MESSAGE
+
+$('.circle').hover(function () {
+    if ($(this).hasClass('filled')) {
+        circleNum = Number($(this).attr('circle-num'));
+        if (circleNum < pageNum) {
+            $('#progress-text').append(`Go to Question ${circleNum + 1}`);
+        } else if (circleNum == pageNum) {
+            //$('#progress-text').append(`You're on Question ${circleNum + 1}`);
+        } else {
+            $('#progress-text').append(`Go to Question ${circleNum + 1}`);
+        };
+    }
+}, function () {
+    $('#progress-text').html('');
+});

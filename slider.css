@@ -10,6 +10,24 @@ body {
   user-select: none; /* Chrome and Opera */
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  font-family: sans-serif;
+}
+
 .container {
   text-align: center;
 }
@@ -90,37 +108,42 @@ button {
 }
 
 button:hover {
-  background: darkcyan;
+  background: #ae3a30;
   color: white;
   transform: translateY(-3px);
   transition-duration: 100ms;
 }
 
 .select {
-  border: 2px solid darkcyan;
+  border: 2px solid #ae3a30;
 }
 
 /* PROGRESS BAR (CIRCLES) */
 
 .circle {
-  margin-top: 20px;
-  height: 15px;
-  width: 15px;
+  color: white;
+  font-size: 16px;
+  /* padding-top: 2px; */
+  margin: 20px 3px;
+  height: 20px;
+  width: 20px;
   background-color: rgb(238, 238, 238);
   border-radius: 50%;
   display: inline-block;
   cursor: not-allowed;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .filled {
-  background-color: darkcyan;
+  background-color: #ae3a30;
   cursor: pointer;
 }
 
 /* PAGE-TURN BUTTONS */
 
 .flex-page-turn {
-  color: darkcyan;
+  color: #ae3a30;
   font-size: 1.4em;
   display: flex;
   justify-content: center;
@@ -202,4 +225,18 @@ credit: https//loading.io/css/ */
     height: 58px;
     opacity: 0;
   }
+}
+
+.question-num {
+  color: #ae3a30;
+}
+
+#progress-text {
+  color: #ae3a30;
+}
+
+.white-border {
+  /* background: black; */
+  border: 1.5px solid black;
+  box-shadow: 1px 1px 1px grey;
 }
