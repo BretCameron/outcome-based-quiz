@@ -7,7 +7,7 @@ $('.question').each(function (i, val) {
     };
     if (i < $('.question').length - 1) {
         $(this).prepend(`<h3 class="question-num">Question ${i + 1}</h3>`);
-        $(this).append(`<br>Question ${i + 1} of ${$('.question').length - 1}`);
+        $(this).append(`<br><p>Question ${i + 1} of ${$('.question').length - 1}</p>`);
         // $(this).append('<hr>');
     };
 });
@@ -104,7 +104,7 @@ $('button').not('#reveal').click(function () {
 $('.circle').click(function () {
     if ($(this).hasClass('filled')) {
         pageNum = Number($(this).attr('circle-num'));
-        console.log(pageNum);
+        // console.log(pageNum);
         turnPage();
     };
 });
@@ -219,4 +219,34 @@ $('.circle').hover(function () {
     }
 }, function () {
     $('#progress-text').html('');
+});
+
+// REPORT ON ANSWERS AT SUBMISSION
+
+
+// Define class "Question" which will record every question and answer
+class Question {
+    constructor(id, question, answer) {
+        this.id = id;
+        this.question = question;
+        this.answer = answer;
+    }
+    test() {
+        console.log(`id ${this.id}`);
+        console.log(`question ${this.question}`);
+        console.log(`answer ${this.answer}`);
+    }
+};
+
+
+// On click of "reveal" button, console log a report of questions and answers. In the future, this could provide data for a database integration, which keeps notes of the survey asnwers.
+
+let questions = [];
+let numOfQuestions = $('.question').length;
+
+$('#reveal').click(function () {
+    for (i = 0; i < numOfQuestions - 1; i++) {
+        questions[i] = new Question(i, $(`.question${i} > h1`).text(), $(`.question${i} > div.flex-buttons > button.select > p.button-text`).text());
+    };
+    console.log(questions);
 });

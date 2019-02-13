@@ -2,12 +2,12 @@
 
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Chrome and Opera */
+  /* -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none; */
 }
 
 h1,
@@ -25,7 +25,7 @@ h3 {
 }
 
 p {
-  font-family: sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .container {
@@ -143,26 +143,35 @@ button:hover {
 /* PAGE-TURN BUTTONS */
 
 .flex-page-turn {
-  color: #ae3a30;
-  font-size: 1.4em;
+  /* fill: #ae3a30; */
+  /* font-size: 1.4em; */
   display: flex;
   justify-content: center;
-  padding: 2px;
+  /* padding: 2px; */
   cursor: pointer;
 }
 
-.flex-page-turn > div {
-  /* cursor: pointer; */
-  margin: 2px;
+#turn-back,
+#turn-forward {
+  max-height: 20px;
+  padding: 10px 20px;
+  max-width: 15px;
 }
 
 .faded {
   cursor: not-allowed;
-  color: rgb(238, 238, 238);
+  opacity: 0.3;
+  /* fill: rgb(238, 238, 238); */
   stroke: rgb(238, 238, 238);
 }
 
 /* RESET BUTTON */
+
+#reset {
+  /* color: rgb(155, 155, 155); */
+  opacity: 0.3;
+  margin-top: 7px;
+}
 
 #reset,
 #reveal-all {
@@ -239,4 +248,16 @@ credit: https//loading.io/css/ */
   /* background: black; */
   border: 1.5px solid black;
   box-shadow: 1px 1px 1px grey;
+}
+
+h3 {
+  margin: 0;
+}
+
+.explanation {
+  margin: 0 auto;
+  max-width: 460px;
+  min-width: 200px;
+  padding: 20px 40px;
+  border: 1px solid lightgrey;
 }
