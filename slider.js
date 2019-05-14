@@ -1,6 +1,6 @@
 //DISPLAY THE FIRST QUESTION, ADD QUESTION 1, QUESTION 2, ETC. AS HEADERS
 
-$(".question").each(function(i, val) {
+$(".question").each(function (i, val) {
   $(this).addClass("question" + i);
   if (i === 0) {
     $(this).removeClass("display-none");
@@ -9,7 +9,7 @@ $(".question").each(function(i, val) {
     $(this).prepend(`<h3 class="question-num">Question ${i + 1}</h3>`);
     $(this).append(
       `<br><p class="question-of">Question ${i + 1} of ${$(".question").length -
-        1}</p>`
+      1}</p>`
     );
     // $(this).append('<hr>');
   }
@@ -19,7 +19,7 @@ $(".question").each(function(i, val) {
 
 for (let i = 0; i < $(".question").length - 1; i++) {
   $("#progress").append('<div class="circle"</div>\n');
-  $(".circle").each(function(i, val) {
+  $(".circle").each(function (i, val) {
     $(this).addClass("circle" + i);
     $(this).attr("circle-num", i);
     if (i === 0) {
@@ -42,7 +42,7 @@ const turnPage = () => {
     $("html, body").animate({ scrollTop: 0 }, "fast");
     const displayCurrentPage = () => {
       // $('.question').animate({ opacity: 100 }, 0);
-      $(".question").each(function(i, val) {
+      $(".question").each(function (i, val) {
         if (i !== pageNum) {
           $(this).addClass("display-none");
         } else {
@@ -94,14 +94,14 @@ const turnPage = () => {
 
 //TURN PAGE (BUTTONS)
 
-$("#turn-back").click(function() {
+$("#turn-back").click(function () {
   if (pageNum > 0) {
     pageNum--;
     turnPage();
   }
 });
 
-$("#turn-forward").click(function() {
+$("#turn-forward").click(function () {
   if (pageNum < furthestPage) {
     pageNum++;
     turnPage();
@@ -110,14 +110,14 @@ $("#turn-forward").click(function() {
 
 $("button")
   .not("#reveal")
-  .click(function() {
+  .click(function () {
     if (pageNum < $(".question").length - 1) {
       pageNum++;
       turnPage();
     }
   });
 
-$(".circle").click(function() {
+$(".circle").click(function () {
   if ($(this).hasClass("filled")) {
     pageNum = Number($(this).attr("circle-num"));
     // console.log(pageNum);
@@ -127,7 +127,7 @@ $(".circle").click(function() {
 
 // RESET AND REVEAL ALL
 
-$("#reset").click(function() {
+$("#reset").click(function () {
   location.reload();
   // pageNum = 0;
   // furthestPage = 0;
@@ -137,14 +137,14 @@ $("#reset").click(function() {
   // $('#reveal-text').empty();
 });
 
-$("#reveal-all").one("click", function() {
+$("#reveal-all").one("click", function () {
   enablePageTurn = false;
   $("#reveal-all").addClass("display-none");
   $("#progress").addClass("display-none");
   $("#turn-back").addClass("display-none");
   $("#turn-forward").addClass("display-none");
   $(".question.display-none").removeClass("display-none");
-  $(".question").each(function(i, val) {
+  $(".question").each(function (i, val) {
     if (i < $(".question").length - 1) {
       $(this).append("<hr>");
     }
@@ -172,12 +172,12 @@ let outcomes = {
 
 $("button")
   .not("#reveal")
-  .click(function() {
+  .click(function () {
     if (!$(this).hasClass("select")) {
       $(this)
         .parent()
         .find("button")
-        .each(function() {
+        .each(function () {
           $(this).removeClass("select");
         });
       $(this).addClass("select");
@@ -186,13 +186,13 @@ $("button")
 
 //COUNT UP SELECTED BUTTONS
 
-$("#reveal").click(function() {
+$("#reveal").click(function () {
   $("#reveal-text").empty();
   let outcomesArray = Object.keys(outcomes);
   //RESET COUNTS TO ZERO
   let scoresArray = [];
   //TALLY UP HOW MANY OF EACH OUTCOME IS SELECTED
-  outcomesArray.forEach(function(element) {
+  outcomesArray.forEach(function (element) {
     let score = $(".select." + element).length;
     scoresArray.push(score);
   });
@@ -209,8 +209,14 @@ $("#reveal").click(function() {
       $("#reveal-text").text(outcomes[winner].name);
     }
     setTimeout(revealResult, timeDelay);
-    setTimeout(function() {
-      window.location.href = `https://www.google.com/`;
+    setTimeout(function () {
+      if (winner === "outcome1") {
+        window.location.href = `https://www.designmyfit.com/6-week-program-hypertrophy-g78g8`;
+      } else if (winner === "outcome2") {
+        window.location.href = `https://www.designmyfit.com/6-week-program-strength-jd9e8`;
+      } else if (winner === "outcome3") {
+        window.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
+      }
     }, timeDelay);
   } else {
     let numQuestions = $(".question").length - 1;
@@ -248,7 +254,7 @@ function randomLoadTime(min, max = 10000, multipleOf = 500) {
 // NAVIGATION MESSAGE
 
 $(".circle").hover(
-  function() {
+  function () {
     if ($(this).hasClass("filled")) {
       circleNum = Number($(this).attr("circle-num"));
       if (circleNum < pageNum) {
@@ -260,7 +266,7 @@ $(".circle").hover(
       }
     }
   },
-  function() {
+  function () {
     $("#progress-text").html("");
   }
 );
@@ -288,7 +294,7 @@ let numOfQuestions = $(".question").length;
 
 $("button")
   .not("#reveal")
-  .click(function() {
+  .click(function () {
     for (i = 0; i < numOfQuestions - 1; i++) {
       questions[i] = new Question(
         i,
