@@ -1,135 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Outcome-Based Quiz by Bret Cameron</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i,900,900i"
-      rel="stylesheet"
-    />
 
-    <link rel="stylesheet" href="slider.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Outcome-Based Quiz by Bret Cameron</title>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i,900,900i" rel="stylesheet" />
 
-  <body>
-    <div class="container">
-      <!-- PROGRESS -->
-      <div id="progress"></div>
-      <div id="progress-bar"></div>
-      <!-- <img class="logo" src="design-my-fit-logo.svg"> -->
+  <link rel="stylesheet" href="slider.css" />
+</head>
 
-      <div class="question display-none">
-        <h1>What is your main fitness goal?</h1>
-        <div class="flex-buttons">
-          <button class="outcome1">
-            <img class="button-image" src="icons/muscle.svg" />
-            <p class="button-text">Gain Muscle</p></button
-          ><br />
-          <button class="outcome3">
-            <img class="button-image" src="icons/Q4 - Strength.svg" />
-            <p class="button-text">Increase Your Strength</p></button
-          ><br />
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q4 - Fat Loss.svg" />
-            <p class="button-text">Not Sure</p></button
-          ><br />
-        </div>
-        <div class="explanation">
-          <!-- <h3>Explanation</h3> -->
-          <p>
-            DMF's training programs offer the flexibility to focus on a variety
-            of fitness goals.
-          </p>
-        </div>
+<body>
+  <div class="container">
+    <!-- PROGRESS -->
+    <div id="progress"></div>
+    <div id="progress-bar"></div>
+    <!-- <img class="logo" src="design-my-fit-logo.svg"> -->
+
+    <div class="question display-none">
+      <h1>What is your main fitness goal?</h1>
+      <div class="flex-buttons">
+        <button class="outcome1">
+          <img class="button-image" src="icons/muscle.svg" />
+          <p class="button-text">Gain Muscle</p>
+        </button><br />
+        <button class="outcome2">
+          <img class="button-image" src="icons/Q4 - Strength.svg" />
+          <p class="button-text">Increase Your Strength</p>
+        </button><br />
+        <button class="outcome3">
+          <img class="button-image" src="icons/Q4 - Fat Loss.svg" />
+          <p class="button-text">Not Sure</p>
+        </button><br />
       </div>
-
-      <div class="question display-none">
-        <h1 class="question-text">What's your gender?</h1>
-        <div class="flex-buttons">
-          <button class="outcome1">
-            <img class="button-image" src="icons/Q1 - Male.svg" />
-            <p class="button-text">Male</p></button
-          ><br />
-          <button class="outcome3">
-            <img class="button-image" src="icons/Q1 - Female.svg" />
-            <p class="button-text">Female</p></button
-          ><br />
-        </div>
-        <div class="explanation">
-          <p>Our fitness programs work for both!</p>
-        </div>
+      <div class="explanation">
+        <!-- <h3>Explanation</h3> -->
+        <p>
+          DMF's training programs offer the flexibility to focus on a variety
+          of fitness goals.
+        </p>
       </div>
+    </div>
 
-      <div class="question display-none">
-        <h1>What's your age?</h1>
-        <div class="flex-buttons">
-          <!-- <button class="outcome1">
+    <div class="question display-none">
+      <h1 class="question-text">What's your gender?</h1>
+      <div class="flex-buttons">
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q1 - Male.svg" />
+          <p class="button-text">Male</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q1 - Female.svg" />
+          <p class="button-text">Female</p>
+        </button><br />
+      </div>
+      <div class="explanation">
+        <p>Our fitness programs work for both!</p>
+      </div>
+    </div>
+
+    <div class="question display-none">
+      <h1>What's your age?</h1>
+      <div class="flex-buttons">
+        <!-- <button class="outcome0">
           <img class="button-image" src="icons/Q2 - Under18.svg">
           <p class="button-text">Under 18</p>
         </button><br> -->
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q2 - 18to25.svg" />
-            <p class="button-text">18 to 25</p></button
-          ><br />
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q2 - 25to35.svg" />
-            <p class="button-text">25 to 35</p></button
-          ><br />
-          <button class="outcome3">
-            <img class="button-image" src="icons/Q2 - Over35.svg" />
-            <p class="button-text">35+</p></button
-          ><br />
-        </div>
-        <div class="explanation">
-          <!-- <h3>Explanation</h3> -->
-          <p>It's never too late to take control of your fitness!</p>
-        </div>
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q2 - 18to25.svg" />
+          <p class="button-text">18 to 25</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q2 - 25to35.svg" />
+          <p class="button-text">25 to 35</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q2 - Over35.svg" />
+          <p class="button-text">35+</p>
+        </button><br />
       </div>
+      <div class="explanation">
+        <!-- <h3>Explanation</h3> -->
+        <p>It's never too late to take control of your fitness!</p>
+      </div>
+    </div>
 
-      <div class="question display-none">
-        <h1>How many years have your trained?</h1>
-        <div class="flex-buttons">
-          <button class="outcome1">
-            <img class="button-image" src="icons/Q3 - 0.svg" />
-            <p class="button-text">Beginner</p></button
-          ><br />
-          <!-- <button class="outcome2">
+    <div class="question display-none">
+      <h1>How many years have your trained?</h1>
+      <div class="flex-buttons">
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q3 - 0.svg" />
+          <p class="button-text">Beginner</p>
+        </button><br />
+        <!-- <button class="outcome0">
           <img class="button-image" src="icons/Q3 - Below1.svg">
           <p class="button-text">Less than 1 year</p>
         </button><br> -->
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q3 - 1-3.svg" />
-            <p class="button-text">Intermediate</p></button
-          ><br />
-          <button class="outcome3">
-            <img class="button-image" src="icons/Q3 - 3+.svg" />
-            <p class="button-text">Advanced</p></button
-          ><br />
-        </div>
-        <div class="explanation">
-          <!-- <h3>Explanation</h3> -->
-          <p>
-            Beginner and intermediate trainees will benefit from the training
-            structure and the DMF programming framework.<br /><br />Advanced
-            trainees will be able to customise the DMF framework further.
-          </p>
-        </div>
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q3 - 1-3.svg" />
+          <p class="button-text">Intermediate</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q3 - 3+.svg" />
+          <p class="button-text">Advanced</p>
+        </button><br />
       </div>
+      <div class="explanation">
+        <!-- <h3>Explanation</h3> -->
+        <p>
+          Beginner and intermediate trainees will benefit from the training
+          structure and the DMF programming framework.<br /><br />Advanced
+          trainees will be able to customise the DMF framework further.
+        </p>
+      </div>
+    </div>
 
-      <!-- <div class="question display-none">
+    <!-- <div class="question display-none">
       <h1 class="question-text">What equipment do you have access to?</h1>
       <div class="flex-buttons">
-        <button class="outcome1">
+        <button class="outcome0">
           <img class="button-image" src="icons/Q5 - None.svg">
           <p class="button-text">I don't have any equipment</p>
         </button><br>
-        <button class="outcome2">
+        <button class="outcome0">
           <img class="button-image" src="icons/some.svg">
           <p class="button-text">I have some equipment</p>
         </button><br>
-        <button class="outcome3">
+        <button class="outcome0">
           <img class="button-image" src="icons/Q5 - Gym.svg">
           <p class="button-text">I have full gym access</p>
         </button><br>
@@ -139,80 +137,66 @@
       </div>
     </div> -->
 
-      <div class="question display-none">
-        <h1>How many days a week would you like to train?</h1>
-        <div class="flex-buttons">
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q6 - 2.svg" />
-            <p class="button-text">2 days a week</p></button
-          ><br />
-          <button class="outcome1">
-            <img class="button-image" src="icons/Q6 - 3.svg" />
-            <p class="button-text">3 days a week</p></button
-          ><br />
-          <button class="outcome2">
-            <img class="button-image" src="icons/Q6 - 4.svg" />
-            <p class="button-text">4 days a week</p></button
-          ><br />
-          <!-- <button class="outcome3">
+    <div class="question display-none">
+      <h1>How many days a week would you like to train?</h1>
+      <div class="flex-buttons">
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q6 - 2.svg" />
+          <p class="button-text">2 days a week</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q6 - 3.svg" />
+          <p class="button-text">3 days a week</p>
+        </button><br />
+        <button class="outcome0">
+          <img class="button-image" src="icons/Q6 - 4.svg" />
+          <p class="button-text">4 days a week</p>
+        </button><br />
+        <!-- <button class="outcome0">
           <img class="button-image" src="icons/Q6 - 6.svg">
           <p class="button-text">6 days a week</p>
         </button><br> -->
-        </div>
-        <div class="explanation">
-          <!-- <h3>Explanation</h3> -->
-          <p>
-            All our lives our busy. That's why each of our programs provide
-            multiple different workout splits, meaning you can fit our programs
-            into any schedule over 18 weeks.
-          </p>
-        </div>
       </div>
-
-      <div class="question display-none">
-        <!-- <h3>All done!</h3> -->
-        <h1>Get My Result</h1>
-        <div
-          id="display-results"
-          style="display: flex; justify-content: center"
-        ></div>
-        <br />
-        <br />
-
-        <button id="reveal" class="text-button">
-          Reveal My Perfect Fitness Program</button
-        ><br />
-        <!-- <h4 id="reveal-text"></h4> -->
-        <!-- LOADING ANIMATION -->
-        <div id="lds-animation" class="lds-off">
-          <div class="lds-ripple">
-            <div></div>
-            <div></div>
-          </div>
-        </div>
+      <div class="explanation">
+        <!-- <h3>Explanation</h3> -->
+        <p>
+          All our lives our busy. That's why each of our programs provide
+          multiple different workout splits, meaning you can fit our programs
+          into any schedule over 18 weeks.
+        </p>
       </div>
-
-      <div class="flex-page-turn">
-        <img
-          id="turn-back"
-          class="page-turn faded"
-          src="arrow-left.svg"
-          alt="Go Back"
-        />
-        <img
-          id="turn-forward"
-          class="page-turn faded"
-          src="arrow-right.svg"
-          alt="Go Forward"
-        />
-        <!-- <p id="reset" class="page-turn">RESET</p> -->
-      </div>
-
-      <!-- <div id="progress-text"></div> -->
-      <!-- <div id="reveal-all" class="page-turn">REVEAL ALL</div> -->
     </div>
 
-    <!-- Your ideal plan is the 6 week muscle building / weight loss plan 
+    <div class="question display-none">
+      <!-- <h3>All done!</h3> -->
+      <h1>Get My Result</h1>
+      <div id="display-results" style="display: flex; justify-content: center"></div>
+      <br />
+      <br />
+
+      <button id="reveal" class="text-button">
+        Reveal My Perfect Fitness Program</button><br />
+      <!-- <h4 id="reveal-text"></h4> -->
+      <!-- LOADING ANIMATION -->
+      <div id="lds-animation" class="lds-off">
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-page-turn">
+      <img id="turn-back" class="page-turn faded" src="arrow-left.svg" alt="Go Back" />
+      <img id="turn-forward" class="page-turn faded" src="arrow-right.svg" alt="Go Forward" />
+      <!-- <p id="reset" class="page-turn">RESET</p> -->
+    </div>
+
+    <!-- <div id="progress-text"></div> -->
+    <!-- <div id="reveal-all" class="page-turn">REVEAL ALL</div> -->
+  </div>
+
+  <!-- Your ideal plan is the 6 week muscle building / weight loss plan 
     
         Recommend the £29 product
     But option is to buy taste of the training system for £9
@@ -221,7 +205,8 @@
 
     -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="slider.js"></script>
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="slider.js"></script>
+</body>
+
 </html>
