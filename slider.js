@@ -211,11 +211,11 @@ $("#reveal").click(function () {
     setTimeout(revealResult, timeDelay);
     setTimeout(function () {
       if (winner === "outcome1") {
-        window.location.href = `https://www.designmyfit.com/6-week-program-hypertrophy-g78g8`;
+        window.top.location.href = `https://www.designmyfit.com/6-week-program-hypertrophy-g78g8`;
       } else if (winner === "outcome2") {
-        window.location.href = `https://www.designmyfit.com/6-week-program-strength-jd9e8`;
+        window.top.location.href = `https://www.designmyfit.com/6-week-program-strength-jd9e8`;
       } else if (winner === "outcome3") {
-        window.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
+        window.top.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
       }
     }, timeDelay);
   } else {
