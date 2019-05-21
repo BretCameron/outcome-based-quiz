@@ -13,8 +13,10 @@ window.onresize = () => {
 }
 
 document.querySelectorAll('button').forEach(el => el.addEventListener('click', () => {
-  if (height !== document.querySelector('body').offsetHeight) {
-    height = document.querySelector('body').offsetHeight;
-    window.parent.postMessage({ frameHeight: height }, '*');
-  }
+  setTimeout(() => {
+    if (height !== document.querySelector('body').offsetHeight) {
+      height = document.querySelector('body').offsetHeight;
+      window.parent.postMessage({ frameHeight: height }, '*');
+    };
+  }, 50);
 }));
