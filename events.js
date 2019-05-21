@@ -11,3 +11,10 @@ window.onresize = () => {
     window.parent.postMessage({ frameHeight: height }, '*');
   }
 }
+
+document.querySelectorAll('button').forEach(el => el.addEventListener('click', () => {
+  if (height !== document.querySelector('body').offsetHeight) {
+    height = document.querySelector('body').offsetHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+}));
