@@ -12,11 +12,21 @@ window.onresize = () => {
   }
 }
 
-document.querySelectorAll('button').forEach(el => el.addEventListener('click', () => {
-  setTimeout(() => {
-    if (height !== document.querySelector('body').offsetHeight) {
-      height = document.querySelector('body').offsetHeight;
-      window.parent.postMessage({ frameHeight: height }, '*');
-    };
-  }, 10);
-}));
+document.querySelectorAll('button').forEach(el => adjustHeight(el));
+
+document.querySelectorAll('#progress').forEach(el => adjustHeight(el));
+
+document.querySelectorAll('.page-turn').forEach(el => adjustHeight(el));
+
+// document.querySelector()
+
+function adjustHeight(el) {
+  el.addEventListener('click', () => {
+    setTimeout(() => {
+      if (height !== document.querySelector('body').offsetHeight) {
+        height = document.querySelector('body').offsetHeight;
+        window.parent.postMessage({ frameHeight: height }, '*');
+      };
+    }, 10);
+  })
+}

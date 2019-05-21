@@ -18,15 +18,15 @@ $(".question").each(function (i, val) {
 //CREATE PROGRESS CIRCLES
 
 for (let i = 0; i < $(".question").length - 1; i++) {
-  $("#progress").append('<div class="circle"</div>\n');
-  $(".circle").each(function (i, val) {
-    $(this).addClass("circle" + i);
-    $(this).attr("circle-num", i);
-    if (i === 0) {
-      $(this).addClass("filled");
-    }
-  });
+  $("#progress").append('<div class="circle"></div>');
 }
+$(".circle").each(function (i, val) {
+  $(this).addClass("circle" + i);
+  $(this).attr("circle-num", i);
+  if (i === 0) {
+    $(this).addClass("filled");
+  }
+});
 
 $("[circle-num=0]").addClass("white-border");
 
