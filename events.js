@@ -18,5 +18,5 @@ document.querySelectorAll('button').forEach(el => el.addEventListener('click', (
       height = document.querySelector('body').offsetHeight;
       window.parent.postMessage({ frameHeight: height }, '*');
     };
-  }, 50);
+  }, 10);
 }));
