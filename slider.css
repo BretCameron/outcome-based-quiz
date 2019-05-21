@@ -1,7 +1,7 @@
 /* BODY, CONTAINER, AND DISPLAY-NONE (FOR PAGE-TURN EFFECT) */
 
 body {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 
   /* -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -18,7 +18,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
 }
 
@@ -39,7 +39,7 @@ h3 {
 
 p,
 button {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .container {
@@ -307,7 +307,7 @@ h3 {
 }
 
 .explanation > p {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   /* font-size: 2rem; */
   font-size: 1.2rem;
   font-weight: bolder;
@@ -335,4 +335,33 @@ td {
 td {
   vertical-align: top;
   text-align: left;
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+    padding-top: 30px;
+  }
+  .button-image {
+    width: 40%;
+    border-width: 2px;
+  }
+
+  .flex-buttons > button {
+    margin: 0;
+    padding: 5px;
+    /* min-width: 50px; */
+  }
+
+  .explanation > p {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .explanation > p {
+    font-size: 1rem;
+    font-weight: 600;
+  }
 }
