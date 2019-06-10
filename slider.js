@@ -211,7 +211,7 @@ $("#reveal").click(function () {
     setTimeout(revealResult, timeDelay);
     setTimeout(function () {
       if (winner === "outcome1") {
-        window.top.location.href = `https://www.designmyfit.com/6-week-program-hypertrophy-g78g8`;
+        window.top.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
       } else if (winner === "outcome2") {
         window.top.location.href = `https://www.designmyfit.com/6-week-program-strength-jd9e8`;
       } else if (winner === "outcome3") {
