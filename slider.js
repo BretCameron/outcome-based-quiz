@@ -69,8 +69,8 @@ const turnPage = () => {
       $("#progress-bar").css({
         background: `linear-gradient(
             90deg,
-            rgb(255, 0, 0) 0% ${j * 25}%,
-            rgb(238, 238, 238) ${j * 25}% 100%
+            rgb(255, 0, 0) 0% ${j * 33}%,
+            rgb(238, 238, 238) ${j * 33}% 100%
           ) 
           50% 50% / 6em 6em no-repeat`
       });
@@ -113,7 +113,9 @@ $("button")
   .click(function () {
     if (pageNum < $(".question").length - 1) {
       pageNum++;
-      turnPage();
+      if (pageNum < 4) {
+        turnPage();
+      }
     }
   });
 
@@ -197,6 +199,21 @@ $("#reveal").click(function () {
     scoresArray.push(score);
   });
   let winner = outcomesArray[scoresArray.indexOf(Math.max(...scoresArray))];
+
+  $("button")
+    .not("#reveal")
+    .click(function () {
+      if (!$(this).hasClass("select")) {
+        $(this)
+          .parent()
+          .find("button")
+          .each(function () {
+            $(this).removeClass("select");
+          });
+        $(this).addClass("select");
+      }
+    });
+
 
   //IF ALL QUESTIONS ANSWERED, DISPLAY LOADING ANIMATION, THEN RESULT
   if ($(".select").length === $(".question").length - 1) {
@@ -320,3 +337,27 @@ $("button")
       );
     });
   });
+
+
+$("button").click(function () {
+  if (pageNum >= 4) {
+    console.log("finish");
+    $("#reveal-text").empty();
+    let outcomesArray = Object.keys(outcomes);
+    //RESET COUNTS TO ZERO
+    let scoresArray = [];
+    //TALLY UP HOW MANY OF EACH OUTCOME IS SELECTED
+    outcomesArray.forEach(function (element) {
+      let score = $(".select." + element).length;
+      scoresArray.push(score);
+    });
+    let winner = outcomesArray[scoresArray.indexOf(Math.max(...scoresArray))];
+    if (winner === "outcome1") {
+      window.top.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
+    } else if (winner === "outcome2") {
+      window.top.location.href = `https://www.designmyfit.com/6-week-program-strength-jd9e8`;
+    } else if (winner === "outcome3") {
+      window.top.location.href = `https://www.designmyfit.com/6-week-program-combined-hvt65d`;
+    }
+  }
+})
